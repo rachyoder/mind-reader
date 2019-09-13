@@ -5,19 +5,29 @@ var bigText = document.querySelector(".bigText");
 var nextBtn = document.getElementById("nextBtn");
 var smallText = document.querySelector(".smallText");
 var resetBtn = document.getElementById("resetBtn");
+console.log(states[currentState]);
+resetBtn.addEventListener("onclick", resetState());
+nextBtn.addEventListener("onclick", changeState());
 
-nextBtn.addEventListener("click", changeState());
+function resetState() {
+    currentState = 0;
+    renderState();
+}
 
 function changeState() {
+    currentState++;
+    renderState();
+}
+console.log(states[currentState]);
+function renderState() {
     
     switch (states[currentState]) {
 
         case "home": 
             bigText.textContent = "I can read your mind";
             nextBtn.style.visibility = 'visible';
-            nextBtn.textContent = "Next";
+            //nextBtn.textContent = "Next";
             resetBtn.textContent = "GO";
-            currentState = 1;
             break;
         
         case "pick num": 
@@ -26,7 +36,6 @@ function changeState() {
             nextBtn.textContent = "Next";
             smallText.textContent = "When you have picked your number hit \'Next\'";
             resetBtn.textContent = "Reset";
-            currentState = 2;
             break;
         
         case "add": 
@@ -35,7 +44,6 @@ function changeState() {
             nextBtn.textContent = "Next";
             smallText.textContent = "Ex: 42 is 4 + 2 = 6 <br>Ex: 06 is 0 + 6 = 6";
             resetBtn.textContent = "Reset";
-            currentState = 3;
             break;
         
         case "subtract": 
@@ -44,7 +52,6 @@ function changeState() {
             nextBtn.textContent = "Next";
             smallText.textContent = "Ex: 42 - 6 = 36 <br>Ex: 06 - 6 = 0";
             resetBtn.textContent = "Reset";
-            currentState = 4;
             break;
         
         case "symbol": 
@@ -53,7 +60,6 @@ function changeState() {
             nextBtn.textContent = "Reveal";
             smallText.textContent = "Find your new number<br>Take note of the symbol beside your number";
             resetBtn.textContent = "Reset";
-            currentState = 5;
         
         case "end": 
             bigText.textContent = "Your Symbol Goes here";
