@@ -16,7 +16,8 @@ body {
     grid-template-columns: 2em 5em auto 5em 2em;
     grid-template-rows: 30em 5em 20em 5em 5em;
     grid-gap: 1em;
-    background-color: #99ddff;
+    background: rgb(9,9,121);
+    background: linear-gradient(130deg, rgb(49, 49, 216) 10%, rgba(0,212,255,1) 100%);
     border: 0.2em solid black;
     border-radius: 2em;
     box-shadow: 1em 1em 2em grey, -1em -1em 2em grey;
@@ -43,7 +44,9 @@ h1, p {
     grid-row-end: 5;
     border-radius: 50%;
     font-family: 'Roboto', sans-serif;
-
+}
+#nextBtn:hover, #resetBtn:hover {
+    background-color: #cccccc;
 }
 .bigText {
     grid-column-start: 2;

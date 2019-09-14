@@ -68,13 +68,16 @@ function renderState() {
         
         case "symbol": 
             bigText.innerHTML = "";
+            do {
+                numSymbolNine = symbols[randomInt(symbols.length)];
+            } while (numSymbolNine === previousSymbol);
             for (i = 0; i < 100; i++) {
                 if (i % 9 == 0) {
-                    numSymbol = i + " - " + symbols[symbols.length - 1] + "<br>";
-                    numbers.push(numSymbol);
-                    bigText.innerHTML += numSymbol;
+                    numSymbolNineString = i + " - " + numSymbolNine + "<br>";
+                    numbers.push(numSymbolNineString);
+                    bigText.innerHTML += numSymbolNineString;
                 } else {
-                    numSymbol = i + " - " + symbols[randomInt(6)] + "<br>";
+                    numSymbol = i + " - " + symbols[randomInt(symbols.length)] + "<br>";
                     numbers.push(numSymbol);
                     bigText.innerHTML += numSymbol;
                 }
@@ -87,16 +90,12 @@ function renderState() {
             resetBtn.textContent = "Reset";
             break;
         case "end": 
-            do {
-                var latestSymbol = symbols[randomInt(7)];
-            } while(latestSymbol == previousSymbol);
-            console.log(latestSymbol);
-            previousSymbol = latestSymbol;
-            bigText.textContent = latestSymbol;
+            previousSymbol = numSymbolNine;
+            bigText.textContent = numSymbolNine;
             nextBtn.style.visibility = 'hidden';
             smallText.style.visibility = 'visible';
             resetBtn.style.visibility = 'visible';
-            smallText.textContent = "Your symbols is: " + latestSymbol;
+            smallText.textContent = "Your symbols is: " + numSymbolNine;
             resetBtn.textContent = "Reset";
             break;
     }
