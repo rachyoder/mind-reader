@@ -15,17 +15,14 @@ nextBtn.addEventListener("click", changeState);
 function randomInt(int) {
     return Math.floor(Math.random() * Math.floor(int));
 }
-
 function resetState() {
     currentState = 0;
     renderState();
 }
-
 function changeState() {
     currentState++;
     renderState();
 }
-
 function renderState() {
     
     switch (states[currentState]) {
@@ -55,7 +52,7 @@ function renderState() {
             smallText.style.visibility = 'visible';
             resetBtn.style.visibility = 'visible';
             nextBtn.textContent = "Next";
-            smallText.textContent = "Ex: 42 is 4 + 2 = 6 \nEx: 06 is 0 + 6 = 6";
+            smallText.textContent = "Ex: 42 is 4 + 2 = 6";
             resetBtn.textContent = "Reset";
             break;
         
@@ -65,7 +62,7 @@ function renderState() {
             smallText.style.visibility = 'visible';
             resetBtn.style.visibility = 'visible';
             nextBtn.textContent = "Next";
-            smallText.textContent = "Ex: 42 - 6 = 36 \nEx: 06 - 6 = 0";
+            smallText.textContent = "Ex: 42 - 6 = 36";
             resetBtn.textContent = "Reset";
             break;
         
@@ -86,7 +83,7 @@ function renderState() {
             smallText.style.visibility = 'visible';
             resetBtn.style.visibility = 'visible';
             nextBtn.textContent = "Reveal";
-            smallText.textContent = "Find your new number \nTake note of the symbol beside your number";
+            smallText.textContent = "Find your new number";
             resetBtn.textContent = "Reset";
             break;
         case "end": 
